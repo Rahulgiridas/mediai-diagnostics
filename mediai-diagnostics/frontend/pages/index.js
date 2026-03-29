@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Particles from "react-tsparticles";
 
 export default function Home() {
   const router = useRouter();
@@ -12,6 +13,24 @@ export default function Home() {
 
   return (
     <div className="container">
+
+      {/* 🔥 PARTICLE BACKGROUND */}
+      <Particles
+        className="particles"
+        options={{
+          background: { color: "#0b1c2c" },
+          particles: {
+            number: { value: 60 },
+            size: { value: 3 },
+            move: { enable: true, speed: 1 },
+            links: {
+              enable: true,
+              color: "#00c6ff",
+              distance: 150
+            }
+          }
+        }}
+      />
 
       {/* NAVBAR */}
       <nav className="navbar">
@@ -33,12 +52,12 @@ export default function Home() {
       </nav>
 
       {/* HERO */}
-      <section id="home" className="hero">
+      <section id="home" className="hero glass">
         <div className="left">
-          <h1>Analyze Medical Reports Instantly</h1>
+          <h1>AI Health Diagnostics</h1>
           <p>
-            Upload your blood report (PDF, CSV, Excel, Image) and get
-            AI-powered health insights instantly.
+            Upload your medical reports (PDF, CSV, Image) and get instant
+            AI-powered health insights.
           </p>
 
           <button
@@ -50,7 +69,7 @@ export default function Home() {
 
           <div className="tags">
             <span>⚡ Fast</span>
-            <span>🔒 Private</span>
+            <span>🔒 Secure</span>
             <span>🧠 AI Powered</span>
           </div>
         </div>
@@ -61,23 +80,23 @@ export default function Home() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how" className="how">
-        <h2>How MediAI Works</h2>
+      <section id="how" className="how glass">
+        <h2>How It Works</h2>
 
         <div className="grid">
           <div className="card">
-            <h3>📄 Upload Report</h3>
+            <h3>📄 Upload</h3>
             <p>Upload PDF, CSV, Excel or Image reports.</p>
           </div>
 
           <div className="card">
             <h3>🤖 AI Analysis</h3>
-            <p>AI extracts medical values automatically.</p>
+            <p>Multi-model AI extracts and analyzes data.</p>
           </div>
 
           <div className="card">
-            <h3>📊 Insights</h3>
-            <p>Get Normal / Risk / Critical results.</p>
+            <h3>📊 Results</h3>
+            <p>Get risk detection and health insights.</p>
           </div>
 
           <div className="card">
@@ -88,77 +107,79 @@ export default function Home() {
       </section>
 
       {/* DASHBOARD */}
-      <section id="dashboard" className="dashboard">
+      <section id="dashboard" className="dashboard glass">
         <h2>Dashboard</h2>
 
         <div className="stats">
-          <div><h3>0</h3><p>Reports</p></div>
-          <div><h3>0</h3><p>Normal</p></div>
-          <div><h3>0</h3><p>Risk</p></div>
-          <div><h3>0</h3><p>Critical</p></div>
+          <div><h3>AI</h3><p>Analysis Engine</p></div>
+          <div><h3>PDF</h3><p>Reports</p></div>
+          <div><h3>CSV</h3><p>Datasets</p></div>
+          <div><h3>IMG</h3><p>Scans</p></div>
         </div>
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="features">
-        <h2>Built for Smart Healthcare</h2>
+      <section id="about" className="features glass">
+        <h2>Smart Healthcare System</h2>
 
         <div className="grid">
           <div className="card">
-            <h3>🔐 Privacy First</h3>
-            <p>Your medical data is secure.</p>
+            <h3>🔐 Privacy</h3>
+            <p>Secure data processing</p>
           </div>
 
           <div className="card">
-            <h3>⚡ Fast Processing</h3>
-            <p>Instant AI-powered analysis.</p>
+            <h3>⚡ Fast</h3>
+            <p>Instant analysis</p>
           </div>
 
           <div className="card">
-            <h3>📊 Smart Insights</h3>
-            <p>Easy-to-understand results.</p>
+            <h3>📊 AI Insights</h3>
+            <p>Advanced diagnostics</p>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
       <footer>
-        Secure your health · MediAI Diagnostics
+        MediAI Diagnostics © 2026
       </footer>
 
-      {/* STYLES */}
+      {/* 🎨 STYLES */}
       <style jsx>{`
-        html {
-          scroll-behavior: smooth;
-        }
-
         .container {
-          background: #0b1c2c;
           color: white;
           font-family: Arial;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .particles {
+          position: fixed;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
         }
 
         .navbar {
           display: flex;
           justify-content: space-between;
-          align-items: center;
           padding: 20px;
-          background: #071521;
+          background: rgba(0,0,0,0.5);
+          backdrop-filter: blur(10px);
           position: sticky;
           top: 0;
-          z-index: 1000;
+          z-index: 100;
         }
 
         .nav-links a {
-          margin: 0 12px;
+          margin: 0 10px;
           cursor: pointer;
-          color: white;
-          text-decoration: none;
         }
 
         .hero {
           display: flex;
-          padding: 60px;
+          padding: 80px;
           align-items: center;
           gap: 40px;
         }
@@ -166,18 +187,6 @@ export default function Home() {
         .hero img {
           width: 400px;
           border-radius: 20px;
-        }
-
-        .big {
-          padding: 15px 30px;
-          margin-top: 20px;
-        }
-
-        .tags span {
-          margin-right: 10px;
-          background: rgba(255,255,255,0.1);
-          padding: 6px 12px;
-          border-radius: 10px;
         }
 
         .grid {
@@ -188,49 +197,36 @@ export default function Home() {
         }
 
         .card {
-          background: rgba(255,255,255,0.05);
           padding: 20px;
           border-radius: 15px;
+          background: rgba(255,255,255,0.05);
           transition: 0.3s;
         }
 
         .card:hover {
           transform: translateY(-5px);
-          box-shadow: 0 0 20px rgba(0,198,255,0.4);
+          box-shadow: 0 0 20px rgba(0,198,255,0.5);
         }
 
-        .dashboard, .features, .how {
-          padding: 60px 40px;
-          text-align: center;
-        }
-
-        .stats {
-          display: flex;
-          justify-content: center;
-          gap: 20px;
-          margin-top: 30px;
-        }
-
-        .stats div {
-          background: rgba(255,255,255,0.1);
-          padding: 20px;
-          border-radius: 10px;
-          width: 120px;
+        .glass {
+          background: rgba(255,255,255,0.05);
+          backdrop-filter: blur(10px);
+          margin: 40px;
+          border-radius: 20px;
         }
 
         .primary {
-          background: linear-gradient(45deg, #00c6ff, #0072ff);
+          background: #00c6ff;
           border: none;
           padding: 10px 20px;
           border-radius: 10px;
-          color: white;
           cursor: pointer;
         }
 
         footer {
           text-align: center;
           padding: 20px;
-          background: #071521;
+          opacity: 0.7;
         }
       `}</style>
     </div>
